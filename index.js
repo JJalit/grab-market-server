@@ -18,8 +18,9 @@ const server = http.createServer(function (req, res) {
     } else if (method === "POST") {
       res.end("생성되었습니다!");
     }
+  } else {
+    res.end("Good Bye");
   }
-  res.end("Good Bye");
 });
 
 server.listen(port, hostname);
