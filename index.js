@@ -61,8 +61,8 @@ app.get("/products", (req, res) => {
 
 app.post("/products", (req, res) => {
   const body = req.body;
-  const { name, description, price, seller, imageUrl, soldout } = body;
-  if (!name || !description || !price || !seller || !imageUrl || ) {
+  const { name, description, price, seller, imageUrl } = body;
+  if (!name || !description || !price || !seller || !imageUrl) {
     res.status(400).send("모든 필드를 입력해주세요");
   }
 
@@ -71,7 +71,7 @@ app.post("/products", (req, res) => {
     price,
     seller,
     imageUrl,
-    name
+    name,
   })
     .then((result) => {
       console.log("상품 생성 결과 :", result);
