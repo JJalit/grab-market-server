@@ -13,7 +13,7 @@ const upload = multer({
     },
   }),
 });
-const port = process.env.PORT || 808;
+const port = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors());
@@ -62,16 +62,16 @@ app.get("/products", (req, res) => {
 app.post("/products", (req, res) => {
   const body = req.body;
   const { name, description, price, seller, imageUrl, soldout } = body;
-  if (!name || !description || !price || !seller || !imageUrl || !soldout) {
+  if (!name || !description || !price || !seller || !imageUrl || ) {
     res.status(400).send("모든 필드를 입력해주세요");
   }
 
   models.Product.create({
-    name,
     description,
     price,
     seller,
     imageUrl,
+    name
   })
     .then((result) => {
       console.log("상품 생성 결과 :", result);
